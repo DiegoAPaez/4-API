@@ -1,3 +1,4 @@
+import { setJoke } from "./components/JokeContainer";
 import "./style.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
@@ -9,3 +10,4 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     </div>
   </div>
 `;
+setJoke();
