@@ -1,10 +1,14 @@
 import { getJoke } from "../services/JokeService";
 
 export const setJoke = async () => {
-    const jokes = document.querySelector("#jokes");
-    let joke = await getJoke("dadjoke");
-
-    if (jokes) {
-        jokes.innerHTML = joke.joke;
+    const jokeContainer = document.querySelector("#jokes") as HTMLDivElement;
+    jokeContainer.innerHTML = ``;
+    const jokeP = document.createElement("p");
+    let newJoke = await getJoke("dadjoke");
+    if (newJoke) {
+        jokeP.innerText = newJoke.joke;
+        jokeP.classList.add("text-center");
+        jokeP.classList.add("text-lg");
+        jokeContainer?.appendChild(jokeP);
     }
 };
