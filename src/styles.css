@@ -9,11 +9,8 @@
       "Courier New", monospace;
     --color-purple-200: oklch(90.2% 0.063 306.703);
     --color-purple-400: oklch(71.4% 0.203 305.504);
-    --color-purple-500: oklch(62.7% 0.265 303.9);
-    --color-purple-600: oklch(55.8% 0.288 302.321);
     --color-purple-800: oklch(43.8% 0.218 303.724);
     --spacing: 0.25rem;
-    --container-lg: 32rem;
     --container-xl: 36rem;
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
@@ -171,29 +168,23 @@
   }
 }
 @layer utilities {
+  .mx-5 {
+    margin-inline: calc(var(--spacing) * 5);
+  }
   .mx-auto {
     margin-inline: auto;
   }
   .flex {
     display: flex;
   }
-  .table {
-    display: table;
-  }
   .h-screen {
     height: 100vh;
   }
-  .max-w-lg {
-    max-width: var(--container-lg);
+  .w-\[60px\] {
+    width: 60px;
   }
   .max-w-xl {
     max-width: var(--container-xl);
-  }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -204,24 +195,17 @@
   .justify-center {
     justify-content: center;
   }
-  .gap-10 {
-    gap: calc(var(--spacing) * 10);
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
   }
   .rounded-xl {
     border-radius: var(--radius-xl);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .bg-purple-200 {
     background-color: var(--color-purple-200);
   }
   .bg-purple-400 {
     background-color: var(--color-purple-400);
-  }
-  .bg-purple-500 {
-    background-color: var(--color-purple-500);
   }
   .p-10 {
     padding: calc(var(--spacing) * 10);
@@ -247,22 +231,12 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
   .outline-2 {
     outline-style: var(--tw-outline-style);
     outline-width: 2px;
   }
   .outline-offset-2 {
     outline-offset: 2px;
-  }
-  .outline-purple-600 {
-    outline-color: var(--color-purple-600);
   }
   .outline-purple-800 {
     outline-color: var(--color-purple-800);
@@ -294,11 +268,6 @@
   z-index: -1;
   pointer-events: none;
 }
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -311,7 +280,6 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-outline-style: solid;
     }

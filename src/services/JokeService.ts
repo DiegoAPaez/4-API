@@ -1,4 +1,10 @@
-import type { Joke, JokeSource } from "../models/interfaces";
+import type {
+    Joke,
+    JokeData,
+    JokeSource,
+    JokeStorage,
+} from "../models/interfaces";
+import { jokes } from "../utils/JokeStorage";
 
 export const getJoke = async (source: JokeSource): Promise<Joke> => {
     try {
@@ -38,4 +44,23 @@ export const formatJokeData = (data: any, source: JokeSource): Joke => {
         default:
             throw new Error(`Unsupported source: ${source}`);
     }
+};
+
+export const formatStorageJoke = (element: Joke): JokeStorage => {
+    let jokeData: JokeData = {
+        joke: element.joke,
+        rate: 0,
+        date: new Date(Date.now()),
+    };
+
+    let newEntry: JokeStorage = {
+        id: element.id,
+        data: jokeData,
+    };
+
+    return newEntry;
+};
+
+export const storeJoke = (entry: JokeStorage): void => {
+    jokes.push(entry);
 };

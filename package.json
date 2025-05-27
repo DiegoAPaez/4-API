@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "tailwind:watch": "npx @tailwindcss/cli -i ./src/input.css -o ./src/styles.css --watch"
     },
     "devDependencies": {
         "@types/node": "^22.15.21",
