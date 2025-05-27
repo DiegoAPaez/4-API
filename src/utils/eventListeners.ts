@@ -2,6 +2,7 @@ import { setJoke } from "../components/JokeContainer";
 import { jokes } from "./JokeStorage";
 
 document.addEventListener("DOMContentLoaded", () => {
+    setJoke();
     loadJokes();
     rateJokes();
 });

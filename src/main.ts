@@ -1,9 +1,8 @@
-import { setJoke } from "./components/JokeContainer";
 import "./utils/eventListeners";
 import "./styles.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div class="bg-purple-200 h-screen flex items-center">
+  <div class="bg-purple-200 h-screen flex items-center w-[80%]">
     <div class="flex flex-col justify-center items-center gap-5 max-w-xl mx-auto p-10 rounded-xl" id="jokes-card">
       <h1 class="text-5xl text-center">Get ready to laugh!</h1>
       <div id="jokes">
@@ -23,4 +22,3 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     </div>
   </div>
 `;
-setJoke();
