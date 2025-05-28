@@ -16,3 +16,7 @@ export interface JokeStorage {
     id: string;
     data: JokeData;
 }
+
+export interface WeatherData {
+    LocalObservationDateTime: string;
+}
