@@ -37,7 +37,6 @@ export const weatherDataManage = async (): Promise<WeatherData> => {
     let storedData: WeatherData | null = loadWeatherData();
 
     if (!storedData) {
-        console.log("NEW DATA");
         return await getWeatherData();
     }
 
@@ -50,10 +49,8 @@ export const weatherDataManage = async (): Promise<WeatherData> => {
     let currentHours: number = currentDate.getHours();
 
     if (storedDay == currentDay && currentHours - storedHours >= 8) {
-        console.log("NEW DATA");
         return await getWeatherData();
     } else {
-        console.log("STORED DATA");
         return storedData;
     }
 };
