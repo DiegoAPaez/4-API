@@ -1,10 +1,12 @@
 import { setJoke } from "../components/JokeContainer";
+import { setWeather } from "../components/WeatherContainer";
 import { jokes } from "./JokeStorage";
 
 document.addEventListener("DOMContentLoaded", () => {
     setJoke();
     loadJokes();
     rateJokes();
+    setWeather();
 });
 
 const loadJokes = () => {
