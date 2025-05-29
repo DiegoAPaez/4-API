@@ -14,6 +14,7 @@ export const getWeatherData = async (): Promise<WeatherData> => {
             );
         }
         const data = await response.json();
+        console.log(data);
         saveWeatherData(data);
         return data;
     } catch (error) {
@@ -22,7 +23,7 @@ export const getWeatherData = async (): Promise<WeatherData> => {
     }
 };
 
-export const saveWeatherData = (data: Promise<WeatherData>) => {
+export const saveWeatherData = (data: WeatherData) => {
     const parsedData = JSON.stringify(data);
     sessionStorage.setItem("weatherData", parsedData);
 };
@@ -32,12 +33,12 @@ export const loadWeatherData = (): WeatherData | null => {
     return storedData ? JSON.parse(storedData) : null;
 };
 
-export const dataUpdateManage = async () => {
+export const weatherDataManage = async (): Promise<WeatherData> => {
     let storedData: WeatherData | null = loadWeatherData();
 
     if (!storedData) {
-        let newData = await getWeatherData();
-        return; // RENDER INSTEAD OF RETURN PENDING
+        console.log("NEW DATA");
+        return await getWeatherData();
     }
 
     let storedDate: Date = new Date(storedData.LocalObservationDateTime);
@@ -49,9 +50,10 @@ export const dataUpdateManage = async () => {
     let currentHours: number = currentDate.getHours();
 
     if (storedDay == currentDay && currentHours - storedHours >= 8) {
-        let newData = await getWeatherData();
-        return; // RENDER INSTEAD OF RETURN PENDING
+        console.log("NEW DATA");
+        return await getWeatherData();
     } else {
+        console.log("STORED DATA");
         return storedData;
     }
 };
