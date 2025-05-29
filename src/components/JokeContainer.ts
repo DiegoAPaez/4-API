@@ -1,12 +1,18 @@
 import type { Joke, JokeStorage } from "../models/interfaces";
-import { getJoke, formatStorageJoke, storeJoke } from "../services/JokeService";
+import {
+    getJoke,
+    formatStorageJoke,
+    storeJoke,
+    getRandomJokeSource,
+} from "../services/JokeService";
 
 export const setJoke = async () => {
     const jokeContainer = document.querySelector("#jokes") as HTMLDivElement;
     const jokeP = document.createElement("p");
     jokeContainer.innerHTML = ``;
 
-    let newJoke: Joke = await getJoke("dadjoke");
+    let randomSource = getRandomJokeSource();
+    let newJoke: Joke = await getJoke(randomSource);
     let storage: JokeStorage = formatStorageJoke(newJoke);
     storeJoke(storage);
     if (newJoke) {

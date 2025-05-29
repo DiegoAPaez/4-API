@@ -15,6 +15,9 @@ export const getJoke = async (source: JokeSource): Promise<Joke> => {
             case "dadjoke":
                 url = "https://icanhazdadjoke.com/";
                 break;
+            case "chucknorris":
+                url = "https://api.chucknorris.io/jokes/random";
+                break;
             default:
                 throw new Error(`Provided source: '${source}' is unsupported`);
         }
@@ -41,6 +44,12 @@ export const formatJokeData = (data: any, source: JokeSource): Joke => {
                 joke: data.joke,
                 source: "dadjoke",
             };
+        case "chucknorris":
+            return {
+                id: data.id,
+                joke: data.value,
+                source: "chucknorris",
+            };
         default:
             throw new Error(`Unsupported source: ${source}`);
     }
@@ -63,4 +72,10 @@ export const formatStorageJoke = (element: Joke): JokeStorage => {
 
 export const storeJoke = (entry: JokeStorage): void => {
     jokes.push(entry);
+};
+
+export const getRandomJokeSource = (): JokeSource => {
+    const sources: JokeSource[] = ["dadjoke", "chucknorris"];
+    const randomIndex = Math.floor(Math.random() * sources.length);
+    return sources[randomIndex];
 };

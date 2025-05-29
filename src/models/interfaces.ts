@@ -4,7 +4,7 @@ export interface Joke {
     source: string;
 }
 
-export type JokeSource = "dadjoke";
+export type JokeSource = "dadjoke" | "chucknorris";
 
 export interface JokeData {
     joke: string;
