@@ -6,7 +6,7 @@ export const setWeather = async () => {
     const {
         WeatherIcon,
         Temperature: {
-            Metric: { Value },
+            Metric: { Value, Unit },
         },
     } = weatherData[0];
 
@@ -21,6 +21,17 @@ export const setWeather = async () => {
     weatherContainer?.appendChild(weatherIcon);
 
     let temperature = document.createElement("p");
-    temperature.innerText = `${Value}`;
+    temperature.classList.add(
+        "font-bold",
+        "text-lg",
+        "border-2",
+        "border-transparent",
+        "border-l-purple-900",
+        "text-purple-900",
+        "pl-5",
+        "py-4",
+        "rounded-sm"
+    );
+    temperature.innerText = `${Value}º ${Unit}`;
     weatherContainer?.appendChild(temperature);
 };
