@@ -14,7 +14,6 @@ export const getWeatherData = async (): Promise<WeatherData> => {
             );
         }
         const data = await response.json();
-        console.log(data);
         saveWeatherData(data);
         return data;
     } catch (error) {
@@ -25,11 +24,11 @@ export const getWeatherData = async (): Promise<WeatherData> => {
 
 export const saveWeatherData = (data: WeatherData) => {
     const parsedData = JSON.stringify(data);
-    sessionStorage.setItem("weatherData", parsedData);
+    localStorage.setItem("weatherData", parsedData);
 };
 
 export const loadWeatherData = (): WeatherData | null => {
-    const storedData: string | null = sessionStorage.getItem("weatherData");
+    const storedData: string | null = localStorage.getItem("weatherData");
     return storedData ? JSON.parse(storedData) : null;
 };
 

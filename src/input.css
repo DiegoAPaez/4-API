@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-#jokes-card {
+/* #jokes-card {
     position: relative;
     z-index: 10;
 }
@@ -23,4 +23,4 @@
     #jokes-card::before {
         max-width: 55%;
     }
-}
+} */
