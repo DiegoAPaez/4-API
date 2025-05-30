@@ -14,7 +14,6 @@ export const getWeatherData = async (): Promise<WeatherData> => {
             );
         }
         const data = await response.json();
-        console.log(data);
         saveWeatherData(data);
         return data;
     } catch (error) {
