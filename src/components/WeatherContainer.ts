@@ -14,7 +14,7 @@ export const setWeather = async () => {
         document.querySelector<HTMLElement>("#weather-container");
 
     let weatherIcon = document.createElement("img");
-    weatherIcon.src = `public/assets/weather/${WeatherIcon.toString().padStart(
+    weatherIcon.src = `/assets/weather/${WeatherIcon.toString().padStart(
         2,
         "0"
     )}-s.png`;

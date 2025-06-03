@@ -21,7 +21,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
                 <picture>
                     <img
                         class="w-[60px] hover:cursor-pointer"
-                        src="public/assets/icons/1F622.svg"
+                        src="/assets/icons/1F622.svg"
                         id="bad-joke"
                         alt="bad"
                         data-value="1"
@@ -30,7 +30,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
                 <picture class="mx-5">
                     <img
                         class="w-[60px] hover:cursor-pointer"
-                        src="public/assets/icons/1F610.svg"
+                        src="/assets/icons/1F610.svg"
                         id="regular-joke"
                         alt="regular"
                         data-value="2"
@@ -39,7 +39,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
                 <picture>
                     <img
                         class="w-[60px] hover:cursor-pointer"
-                        src="public/assets/icons/1F923.svg"
+                        src="/assets/icons/1F923.svg"
                         id="good-joke"
                         alt="good"
                         data-value="3"
