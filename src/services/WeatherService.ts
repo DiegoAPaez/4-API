@@ -5,7 +5,7 @@ const LOCATION_KEY = import.meta.env.VITE_LOCATION_KEY;
 
 export const getWeatherData = async (): Promise<WeatherData> => {
     try {
-        const url = `http://dataservice.accuweather.com/currentconditions/v1/${LOCATION_KEY}?apikey=${API_KEY}&language=es-es&details=false`;
+        const url = `https://dataservice.accuweather.com/currentconditions/v1/${LOCATION_KEY}?apikey=${API_KEY}&language=es-es&details=false`;
 
         const response = await fetch(url);
         if (!response.ok) {
