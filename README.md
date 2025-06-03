@@ -1,5 +1,7 @@
 # 📚 Sprint 4 | API
 
+## [🚀 CLICK TO VISIT DEPLOYMENT](https://4-api.vercel.app/)
+
 ## 🎯 Goals
 
 -   Understand how an API works.
