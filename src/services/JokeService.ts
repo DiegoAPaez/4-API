@@ -4,7 +4,7 @@ import type {
     JokeSource,
     JokeStorage,
 } from "../models/interfaces";
-import { jokes } from "../utils/JokeStorage";
+import { reportJokes } from "../utils/JokeStorage";
 
 export const getJoke = async (source: JokeSource): Promise<Joke> => {
     try {
@@ -71,7 +71,7 @@ export const formatStorageJoke = (element: Joke): JokeStorage => {
 };
 
 export const storeJoke = (entry: JokeStorage): void => {
-    jokes.push(entry);
+    reportJokes.push(entry);
 };
 
 export const getRandomJokeSource = (): JokeSource => {
