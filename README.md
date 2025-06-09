@@ -57,6 +57,20 @@ Make sure you have Node.js installed. Then install the packages:
 ```bash
 npm install
 ```
+### 3️⃣ Configure Environment Variables
+
+Create a `.env` file in the root directory and add your API keys:
+
+```plaintext
+VITE_WEATHER_API_KEY=<your_weather_api_key>
+VITE_LOCATION_KEY=<your_weather_location_key>
+```
+
+### 4️⃣ Start the Development Server
+
+```bash
+npm run dev
+```
 
 ## 📁 Folder Structure
 

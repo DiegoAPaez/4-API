@@ -1,6 +1,6 @@
 import { setJoke } from "../components/JokeContainer";
 import { setWeather } from "../components/WeatherContainer";
-import { jokes } from "./JokeStorage";
+import { reportJokes } from "./JokeStorage";
 
 document.addEventListener("DOMContentLoaded", () => {
     setJoke();
@@ -15,6 +15,7 @@ const loadJokes = () => {
 
     if (nextJokeButton) {
         nextJokeButton.addEventListener("click", async () => {
+            printJokes();
             await setJoke();
         });
     } else {
@@ -37,17 +38,22 @@ const rateJokes = () => {
             if (currentJoke) {
                 const jokeId = currentJoke.dataset.id;
                 const rateValue = parseInt(rate.dataset.value ?? "0");
-                let storedJoke = jokes.find((joke) => joke.id == jokeId);
+                let storedJoke = reportJokes.find((joke) => joke.id == jokeId);
                 if (storedJoke) {
                     storedJoke.data.rate = rateValue;
                 }
             }
-            jokes.forEach((joke) => {
-                console.clear();
-                console.log(`Date: ${joke.data.date}
-                    Joke: ${joke.data.joke}
-                    Rate: ${joke.data.rate}`);
-            });
         })
     );
 };
+
+const printJokes = () => {
+    console.clear();
+    console.table(reportJokes.map((joke) => {
+        return {
+            joke: joke.data.joke,
+            rate: joke.data.rate,
+            date: joke.data.date.toLocaleDateString(),
+        };
+    }));
+}

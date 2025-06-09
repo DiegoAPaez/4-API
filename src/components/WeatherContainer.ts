@@ -30,7 +30,9 @@ export const setWeather = async () => {
         "text-purple-900",
         "pl-5",
         "py-4",
-        "rounded-sm"
+        "rounded-sm",
+        "text-shadow-md",
+        "text-shadow-purple-100",
     );
     temperature.innerText = `${Value}º ${Unit}`;
     weatherContainer?.appendChild(temperature);
